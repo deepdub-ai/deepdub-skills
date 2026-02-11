@@ -2,6 +2,9 @@
 name: Deepdub TTS
 description: Generate speech audio using Deepdub and attach it as a MEDIA file (Telegram-compatible).
 version: 0.1.0
+author: Deepdub
+homepage: https://deepdub.ai
+repository: https://github.com/deepdub/deepdub-tts-skill
 tags: [tts, deepdub, audio, telegram]
 env:
   required:
@@ -53,9 +56,10 @@ DEEPDUB_API_KEY=dd-00000000000000000000000065c9cbfe
 Install the official Deepdub Python SDK:
 
 ```bash
-# Using uv (recommended)
-uv pip install deepdub
-
-# Or using pip
 pip install deepdub
+```
+
+Or using [uv](https://github.com/astral-sh/uv) (faster alternative):
+```bash
+uv pip install deepdub
 ```
