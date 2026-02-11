@@ -3,6 +3,17 @@ name: Deepdub TTS
 description: Generate speech audio using Deepdub and attach it as a MEDIA file (Telegram-compatible).
 version: 0.1.0
 tags: [tts, deepdub, audio, telegram]
+env:
+  required:
+    - DEEPDUB_API_KEY
+    - DEEPDUB_VOICE_PROMPT_ID
+  optional:
+    - DEEPDUB_LOCALE
+    - DEEPDUB_MODEL
+    - OPENCLAW_MEDIA_DIR
+invocation:
+  user: true
+  model: false
 ---
 
 ## What this skill does
@@ -16,7 +27,7 @@ as a `MEDIA:` attachment that OpenClaw can send to channels like Telegram.
 ### Permissions
 This skill requires permission to:
 - Execute `deepdub_tts.py` (the bundled script)
-- Write audio files to `OPENCLAW_MEDIA_DIR` only
+- Write audio files to `OPENCLAW_MEDIA_DIR` only (output path cannot be overridden via CLI arguments)
 
 ## Setup
 Set the following environment variables where OpenClaw runs:
@@ -31,12 +42,15 @@ Optional:
 - `OPENCLAW_MEDIA_DIR` (default: `/tmp/openclaw_media`)
 
 ### Free Trial Key
-For testing, you can use this free trial API key:
+For testing only, you can use this free trial API key:
 ```
 DEEPDUB_API_KEY=dd-00000000000000000000000065c9cbfe
 ```
+> **Note:** This is a rate-limited trial key for evaluation purposes only. Do not use for production. Obtain your own API key from Deepdub for production use.
 
 ## Install dependency
+
+Install the official Deepdub Python SDK:
 
 ```bash
 # Using uv (recommended)

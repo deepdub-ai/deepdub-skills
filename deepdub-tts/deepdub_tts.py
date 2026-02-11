@@ -25,11 +25,6 @@ def main():
         default=os.getenv("DEEPDUB_MODEL"),
         help="Optional Deepdub model",
     )
-    parser.add_argument(
-        "--out-dir",
-        default=os.getenv("OPENCLAW_MEDIA_DIR", "/tmp/openclaw_media"),
-        help="Output directory for audio files",
-    )
     args = parser.parse_args()
 
     api_key = os.getenv("DEEPDUB_API_KEY")
@@ -41,7 +36,8 @@ def main():
             "Missing --voice-prompt-id (or set DEEPDUB_VOICE_PROMPT_ID)"
         )
 
-    out_dir = Path(args.out_dir)
+    # Output directory is controlled only via environment variable (not CLI argument)
+    out_dir = Path(os.getenv("OPENCLAW_MEDIA_DIR", "/tmp/openclaw_media"))
     out_dir.mkdir(parents=True, exist_ok=True)
 
     out_path = out_dir / f"deepdub-{uuid.uuid4().hex}.mp3"
