@@ -34,7 +34,7 @@ def main():
 
     api_key = os.getenv("DEEPDUB_API_KEY")
     if not api_key:
-        raise SystemExit("Missing DEEPDUB_API_KEY environment variable")
+        raise SystemExit("Missing DEEPDUB_API_KEY environment variable. See SKILL.md for the free trial key.")
 
     if not args.voice_prompt_id:
         raise SystemExit(
