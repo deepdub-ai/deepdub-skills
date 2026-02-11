@@ -1,22 +1,9 @@
 ---
 name: Deepdub TTS
-description: Generate speech audio using Deepdub and attach it as a MEDIA file (Telegram-compatible).
 version: 0.1.0
-author: Deepdub
-homepage: https://deepdub.ai
-repository: https://github.com/deepdub/deepdub-tts-skill
+description: Generate speech audio using Deepdub and attach it as a MEDIA file (Telegram-compatible).
 tags: [tts, deepdub, audio, telegram]
-env:
-  required:
-    - DEEPDUB_API_KEY
-    - DEEPDUB_VOICE_PROMPT_ID
-  optional:
-    - DEEPDUB_LOCALE
-    - DEEPDUB_MODEL
-    - OPENCLAW_MEDIA_DIR
-invocation:
-  user: true
-  model: false
+metadata: {"clawdbot":{"requires":{"bins":["python3"],"env":["DEEPDUB_API_KEY","DEEPDUB_VOICE_PROMPT_ID"]},"primaryEnv":"DEEPDUB_API_KEY"}}
 ---
 
 ## What this skill does
